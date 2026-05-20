@@ -11,7 +11,7 @@ function getServerURL() {
   return `http://${hostname}:3000`;
 }
 
-const socket = io(getServerURL(), {
+const socket = io("https://hypewebrtc.onrender.com", {
   reconnection: true,
   reconnectionAttempts: 15,
   reconnectionDelay: 1000,
