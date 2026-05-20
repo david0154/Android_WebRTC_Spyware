@@ -42,7 +42,7 @@ let activeDownloads = {}; // Map of fileId -> { name, buffer, totalChunks, recei
 const config = {
   iceServers: [
     { urls: 'stun:stun.l.google.com:19302' },
-    { urls: 'turn:numb.viagenie.ca', username: 'your@email.com', credential: 'yourpassword' }
+    { urls: 'turn:openrelay.metered.ca:80', username: 'openrelayproject', credential: 'openrelayproject' }
   ]
 };
 
