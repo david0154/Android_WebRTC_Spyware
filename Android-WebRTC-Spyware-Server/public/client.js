@@ -29,9 +29,31 @@ let activeDownloads = {}; // Map of fileId -> { name, buffer, totalChunks, recei
 
 const config = {
   iceServers: [
-    { urls: 'stun:stun.l.google.com:19302' },
-    { urls: 'turn:openrelay.metered.ca:80', username: 'openrelayproject', credential: 'openrelayproject' }
-  ]
+    // Google STUN
+    {
+      urls: [
+        'stun:stun.l.google.com:19302'
+      ]
+    },
+    // Metered STUN
+    {
+      urls: [
+        'stun:stun.relay.metered.ca:80'
+      ]
+    },
+    // Metered TURN
+    {
+      urls: [
+        'turn:global.relay.metered.ca:80',
+        'turn:global.relay.metered.ca:80?transport=tcp',
+        'turn:global.relay.metered.ca:443',
+        'turns:global.relay.metered.ca:443?transport=tcp'
+      ],
+      username: 'openrelayproject',
+      credential: 'openrelayproject'
+    }
+  ],
+  iceCandidatePoolSize: 10
 };
 
 function updateStatus(message) {
